@@ -112,7 +112,7 @@ public class BarcaTest {
         b.ocupaLugarSemVerificacao(2, 2);
         int ocupa = b.ocupaLugar("F00A04");
 
-        Assertions.assertEquals(2, ocupa);
+        Assertions.assertEquals(0, ocupa);
     }
 
     @Test
@@ -148,7 +148,7 @@ public class BarcaTest {
         }
 
         b.ocupaLugarSemVerificacao(41,12); //passageiro 101
-        int ocupa = b.ocupaLugar("F39A04");
+        int ocupa = b.ocupaLugar("F39A18");
 
         Assertions.assertEquals(2, ocupa);
     }
@@ -214,7 +214,7 @@ public class BarcaTest {
             b.ocupaLugarSemVerificacao(21, i);
         }
 
-        int ocupa = b.ocupaLugar("F22A19"); //passageiro 100
+        int ocupa = b.ocupaLugar("F22A20"); //passageiro 100
 
         Assertions.assertEquals(3, ocupa);
     }
@@ -229,7 +229,7 @@ public class BarcaTest {
 
         int ocupa = b.ocupaLugar("F22A12"); //passageiro 100
 
-        Assertions.assertEquals(0, ocupa);
+        Assertions.assertEquals(1, ocupa);
     }
 
 
@@ -393,7 +393,7 @@ public class BarcaTest {
     //assento ocupado
     @Test
     public void passageiro2AssentoOcupado() { 
-        b.ocupaLugarSemVerificacao(03,04);
+        b.ocupaLugarSemVerificacao(02,03);
         int ocupa = b.ocupaLugar("F03A04");
 
         Assertions.assertEquals(1, ocupa);
