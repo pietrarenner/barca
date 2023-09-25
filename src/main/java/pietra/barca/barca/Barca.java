@@ -46,7 +46,7 @@ public class Barca {
         if (fila<0 || fila > 60){
             return 0;
         }
-        if (assento < 0 || assento > 21){
+        if (assento < 0 || assento > 20){
             return 0;
         }
         // Verifica se o assento já está ocupado
