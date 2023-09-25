@@ -14,6 +14,225 @@ public class BarcaTest {
         b = new Barca();
     }
 
+    //considerando técnica de valor limite
+    @Test
+    public void passageiro1Fileira2() { 
+        int ocupa = b.ocupaLugar("F02A01");
+
+        Assertions.assertEquals(3, ocupa);
+    }
+
+    @Test
+    public void passageiro100Fileira2() {  
+        for(int i = 0; i < 20; i++) {
+            for(int j = 0; j < 4; j++){ //80 primeiros passageiros ocupam lugares de 1 a 5 nas fileiras 1 até 20
+                b.ocupaLugarSemVerificacao(i,j); 
+            }
+        }
+
+        for(int i = 39; i < 58; i++){   //do 81 ao 99 ocupam o primeiro lugar das fileiras 40 até 58
+            b.ocupaLugarSemVerificacao(i, 01);
+        }
+
+        int ocupa = b.ocupaLugar("F02A12"); //passageiro 100
+
+        Assertions.assertEquals(3, ocupa);
+    }
+
+    @Test
+    public void passageiro101Fileira2() {  
+        for(int i = 0; i < 20; i++) {
+            for(int j = 0; j < 5; j++){ //100 primeiros passageiros ocupam lugares de 1 a 5 nas fileiras 1 até 20
+                b.ocupaLugarSemVerificacao(i,j); 
+            }
+        }
+
+        int ocupa = b.ocupaLugar("F02A12"); //passageiro 101
+
+        Assertions.assertEquals(2, ocupa);
+    }
+
+    @Test
+    public void passageiro100Fileira41() {  
+        for(int i = 0; i < 20; i++) {
+            for(int j = 0; j < 4; j++){ //80 primeiros passageiros ocupam lugares de 1 a 5 nas fileiras 1 até 20
+                b.ocupaLugarSemVerificacao(i,j); 
+            }
+        }
+
+        for(int i = 39; i < 58; i++){   //do 81 ao 99 ocupam o primeiro lugar das fileiras 40 até 58
+            b.ocupaLugarSemVerificacao(i, 01);
+        }
+
+        int ocupa = b.ocupaLugar("F41A12"); //passageiro 100
+
+        Assertions.assertEquals(2, ocupa);
+    }
+
+    @Test
+    public void passageiro101Fileira41() {  
+        for(int i = 0; i < 20; i++) {
+            for(int j = 0; j < 5; j++){ //100 primeiros passageiros ocupam lugares de 1 a 5 nas fileiras 1 até 20
+                b.ocupaLugarSemVerificacao(i,j); 
+            }
+        }
+
+        int ocupa = b.ocupaLugar("F41A13"); //passageiro 101
+
+        Assertions.assertEquals(3, ocupa);
+    }
+
+    @Test
+    public void passageiro200Fileira41() { //passageiro 202 ocupa lugar na fileira 19
+        for(int i = 0; i < 20; i++) {
+            for(int j = 5; j < 10; j++){ //100 primeiros passageiros ocupam lugares de 6 a 10 nas fileiras 1 até 20
+                b.ocupaLugarSemVerificacao(i,j); 
+            }
+        }
+
+        for(int i = 39; i < 58; i++) {
+            for(int j = 6; j < 11; j++){ //101 ao 196 passageiros ocupam lugares de 7 a 11 nas fileiras 40 até 60
+                b.ocupaLugarSemVerificacao(i,j); 
+            }
+        }
+
+        b.ocupaLugarSemVerificacao(22,1);
+        b.ocupaLugarSemVerificacao(22,2);
+        b.ocupaLugarSemVerificacao(22,3);
+
+        //200
+        int ocupa = b.ocupaLugar("F41A15");
+
+
+        Assertions.assertEquals(3, ocupa);
+    }
+
+    @Test
+    public void passageiro2Fileira0() { 
+        b.ocupaLugarSemVerificacao(2, 2);
+        int ocupa = b.ocupaLugar("F00A04");
+
+        Assertions.assertEquals(2, ocupa);
+    }
+
+    @Test
+    public void passageiro2Fileira1() { 
+        b.ocupaLugarSemVerificacao(2, 2);
+        int ocupa = b.ocupaLugar("F01A04");
+
+        Assertions.assertEquals(3, ocupa);
+    }
+
+    @Test
+    public void passageiro2Fileira20() { 
+        b.ocupaLugarSemVerificacao(2, 2);
+        int ocupa = b.ocupaLugar("F20A04");
+
+        Assertions.assertEquals(3, ocupa);
+    }
+
+    @Test
+    public void passageiro2Fileira21() { 
+        b.ocupaLugarSemVerificacao(2, 2);
+        int ocupa = b.ocupaLugar("F21A04");
+
+        Assertions.assertEquals(2, ocupa);
+    }
+
+    @Test
+    public void passageiro102Fileira39() {  
+        for(int i = 0; i < 20; i++) {
+            for(int j = 0; j < 5; j++){ //100 primeiros passageiros ocupam lugares de 1 a 5 nas fileiras 1 até 20
+                b.ocupaLugarSemVerificacao(i,j); 
+            }
+        }
+
+        b.ocupaLugarSemVerificacao(41,12); //passageiro 101
+        int ocupa = b.ocupaLugar("F39A04");
+
+        Assertions.assertEquals(2, ocupa);
+    }
+
+    @Test
+    public void passageiro102Fileira40() {  
+        for(int i = 0; i < 20; i++) {
+            for(int j = 0; j < 5; j++){ //100 primeiros passageiros ocupam lugares de 1 a 5 nas fileiras 1 até 20
+                b.ocupaLugarSemVerificacao(i,j); 
+            }
+        }
+
+        b.ocupaLugarSemVerificacao(41,12); //passageiro 101
+        int ocupa = b.ocupaLugar("F40A02");
+
+        Assertions.assertEquals(3, ocupa);
+    }
+
+    @Test
+    public void passageiro102Fileira60() {  
+        for(int i = 0; i < 20; i++) {
+            for(int j = 0; j < 5; j++){ //100 primeiros passageiros ocupam lugares de 1 a 5 nas fileiras 1 até 20
+                b.ocupaLugarSemVerificacao(i,j); 
+            }
+        }
+
+        b.ocupaLugarSemVerificacao(41,12); //passageiro 101
+        int ocupa = b.ocupaLugar("F60A02");
+
+        Assertions.assertEquals(3, ocupa);
+    }
+
+    @Test
+    public void passageiro102Fileira61() {  
+        for(int i = 0; i < 20; i++) {
+            for(int j = 0; j < 5; j++){ //100 primeiros passageiros ocupam lugares de 1 a 5 nas fileiras 1 até 20
+                b.ocupaLugarSemVerificacao(i,j); 
+            }
+        }
+
+        b.ocupaLugarSemVerificacao(41,12); //passageiro 101
+        int ocupa = b.ocupaLugar("F6102");
+
+        Assertions.assertEquals(0, ocupa);
+    }
+
+
+    @Test
+    public void passageiro1200Fileira22() {  
+        for(int i = 0; i < 21; i++) {
+            for(int j = 0; j < 20; j++){  
+                b.ocupaLugarSemVerificacao(i,j); 
+            }
+        }
+
+        for(int i = 22; i < 59; i++) {
+            for(int j = 0; j < 20; j++){  
+                b.ocupaLugarSemVerificacao(i,j); 
+            }
+        }
+
+        for(int i = 0; i < 19; i++){   //do 81 ao 99 ocupam o primeiro lugar das fileiras 40 até 58
+            b.ocupaLugarSemVerificacao(21, i);
+        }
+
+        int ocupa = b.ocupaLugar("F22A19"); //passageiro 100
+
+        Assertions.assertEquals(3, ocupa);
+    }
+
+    @Test
+    public void passageiro1201Fileira22() {  
+        for(int i = 0; i < 60; i++) {
+            for(int j = 0; j < 20; j++){ 
+                b.ocupaLugarSemVerificacao(i,j); 
+            }
+        }
+
+        int ocupa = b.ocupaLugar("F22A12"); //passageiro 100
+
+        Assertions.assertEquals(0, ocupa);
+    }
+
+
     //assento livre e atribuído ao passageiro | assento bloqueado devido a distribuição de peso
     @Test
     public void passageiro2Fileira2() { //segundo passageiro ocupa lugar na segunda fileira
